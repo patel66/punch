@@ -1,12 +1,9 @@
-#!/usr/bin/env ruby
-# encoding: utf-8
-
 require "pry"
 require 'pry-byebug'
 require 'time'
 require 'date'
 require 'selenium-webdriver'
-require_relative 'helper'
+require_relative 'selenium_wrapper'
 
 # 1 calculate all fields
 data.each do |period, content|
@@ -56,16 +53,6 @@ driver.quit
 # 3 use selenium to post the data
 #
 # TODO
-# add git commits for today
-  # username = `git config user.name`.strip
-  # today = Date.today.to_s
-  # logs = `git log --after='#{today} 00:00:00' --before='#{today} 23:59:58' --author='Chun-Yang' --pretty=format:'%s'`
-    # .split
-    # .reverse
-
-
-
-# use capybara and add 'built-in' tests
 
 # vim shortcut to run external function or use tubux to run command link <leader>m
 # use two times instead of a time interval for rest

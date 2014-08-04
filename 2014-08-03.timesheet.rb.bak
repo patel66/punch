@@ -1,0 +1,28 @@
+# @t: insert current time
+@data = {
+  morning: {
+    start: "8:57",
+    end: "12:30",
+    rest: %w[10 ],
+    notes: %Q(
+fix bug: errors does not have a method merge
+fix bug: use date instead of string as date in a query
+fix bug: strong params when the hash is empty, we need to give it a default one
+fix bug: strong params are note permitted
+fix bug: attributes_params is missing
+    )
+  },
+  afternoon: {
+    start: "13:43",
+    end: "18:26",
+    rest: %w[ ],
+    notes: %Q(
+fix bug: email is not valid in delayed jobs
+change trent's log
+merge feature/testing
+refactor
+(origin/feature/testing, feature/testing) Finihed testing trip inventory
+fix bug: card_type does not exist in refund view
+    )
+  }
+}

@@ -13,8 +13,3 @@ end
 def driver
   @driver ||= Selenium::WebDriver.for :chrome, switches: ['--test-type']
 end
-
-def data
-  require '/Users/newuser/Project/notes/freshbook_timesheet.rb' if @data.nil?
-  @data
-end
