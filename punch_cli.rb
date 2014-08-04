@@ -30,8 +30,7 @@ rescue Interrupt
   # if the current state is woring, we add a timestamp at the end
   timestamps << Time.now if timestamps.count.odd?
   # generate timesheet data
-  puts 'What a day! You must be tired. \
-    Please sit back and allow me to generate your freshbook timesheet.'
+  puts 'What a day! You must be tired. Please sit back and allow me to generate your freshbook timesheet.'
   # TODO deal with edge case: there are only two timestamps
   max_break_interval = 0
   max_break_index = 0
@@ -64,11 +63,11 @@ rescue Interrupt
   username = `git config user.name`.strip
 
   periods[:morning][:notes] = `git log --after='#{today} #{periods[:morning][:timestamps][0]}' --before='#{today} #{timesheet_split_timestamp}' --author='Chun-Yang' --pretty=format:'%s'`
-  .split
+  .split("\n")
   .reverse
 
   periods[:afternoon][:notes] = `git log --after='#{today} #{timesheet_split_timestamp}' --before='#{today} #{periods[:afternoon][:timestamps][-1]}' --author='Chun-Yang' --pretty=format:'%s'`
-  .split
+  .split("\n")
   .reverse
 
   puts periods
