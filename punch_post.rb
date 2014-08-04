@@ -1,24 +1,5 @@
-require "pry"
-require 'pry-byebug'
-require 'time'
-require 'date'
 require 'selenium-webdriver'
 require_relative 'selenium_wrapper'
-
-# 1 calculate all fields
-data.each do |period, content|
-  # 1.1 parse all time fields
-  [:start, :end].each do |time|
-    content[time] = Time.parse(content[time])
-  end
-  content[:rest].each_with_index do |interval, index|
-    content[:rest][index] = interval.to_f
-  end
-  # 1.2 calculate hours
-  seconds = content[:end] - content[:start]
-  seconds -=  content[:rest].inject(0, :+) * 60
-  content[:hours] = (seconds / 3600.0).round(2)
-end
 
 # 2 Login
 base_url = 'https://poeticsystems.freshbooks.com/'
@@ -31,18 +12,18 @@ driver.find_element(id: 'log_in').click
 
 # 3 fill in fields and submit
 driver.navigate.to timesheet_url
-[:morning, :afternoon].each do |period|
+periods.each do |period, content|
   sleep 2
   select('projectid', 'FIP Online')
   sleep 2
   select('taskid', 'App Design/Dev')
-  fill_in('hours', data[period][:hours])
-  fill_in('notes', data[period][:notes])
+  fill_in('hours', content[:hours])
+  fill_in('notes', content[:notes])
   driver.find_element(id: 'log-hours-button').click
 end
 
 # sleep to wait for the post request
-sleep 4
+sleep 2
 driver.quit
 
 # Structure:

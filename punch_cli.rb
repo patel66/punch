@@ -65,14 +65,12 @@ rescue Interrupt
   periods[:morning][:notes] = `git log --after='#{today} #{periods[:morning][:timestamps][0]}' --before='#{today} #{timesheet_split_timestamp}' --author='Chun-Yang' --pretty=format:'%s'`
   .split("\n")
   .reverse
+  .join("\n")
 
   periods[:afternoon][:notes] = `git log --after='#{today} #{timesheet_split_timestamp}' --before='#{today} #{periods[:afternoon][:timestamps][-1]}' --author='Chun-Yang' --pretty=format:'%s'`
   .split("\n")
   .reverse
+  .join("\n")
 
   puts periods
-  # TODO delete this
-
-
-  exit
 end

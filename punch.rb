@@ -7,4 +7,5 @@ require_relative 'punch_utils'
 require_relative 'punch_cli' if !File.file?(timesheet)
 
 # when the timesheet is created, we post the data
-require_relative 'punch_post' if File.file?(timesheet)
+# TODO use if, use file instead of a variable
+require_relative 'punch_post' # if File.file?(timesheet)
