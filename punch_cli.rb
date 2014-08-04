@@ -72,6 +72,6 @@ rescue Interrupt
 
   puts periods
   # TODO delete this
-    #
+
   exit
 end
