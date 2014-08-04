@@ -73,4 +73,5 @@ rescue Interrupt
   .join("\n")
 
   puts periods
+  @periods = periods
 end

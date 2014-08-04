@@ -12,7 +12,7 @@ driver.find_element(id: 'log_in').click
 
 # 3 fill in fields and submit
 driver.navigate.to timesheet_url
-periods.each do |period, content|
+@periods.each do |period, content|
   sleep 2
   select('projectid', 'FIP Online')
   sleep 2
